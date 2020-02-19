@@ -1,9 +1,9 @@
 sudo: required
 language: android
-addons:
-    sonarcloud:
-        token:
-            secure: "7LgeF7ZcTpJ-6i5Zk7vDOw"
+#addons:
+ #   sonarcloud:
+  #      token:
+   #         secure: "7LgeF7ZcTpJ-6i5Zk7vDOw"
 jdk: oraclejdk8
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
