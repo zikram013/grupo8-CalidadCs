@@ -18,6 +18,20 @@ buildscript {
 plugins {
     id "org.sonarqube" version "2.8"
 }
+
+plugins {
+  id "org.sonarqube" version "2.8"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "zikram013_grupo8-CalidadCs"
+    property "sonar.organization", "zikram013"
+    property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.login", "c8b6a52ea6fca43716b9efe8bd89c608b7c6fbac"
+  }
+}
+
 allprojects {
     repositories {
         google()
