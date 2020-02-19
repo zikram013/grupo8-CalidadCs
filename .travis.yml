@@ -30,6 +30,9 @@ before_deploy:
 - cd -
 - sh set_tags.sh
 script:
+  - sonar-scanner
+  - cd Tetris-Procesos-master/app
+  - chmod +x gradlew
   - ./gradlew sonarqube
 deploy:
   provider: releases
