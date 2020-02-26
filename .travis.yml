@@ -34,12 +34,13 @@ before_install:
   - chmod +x Tetris-Procesos-master/gradlew
   - yes | sdkmanager "platforms;android-29"
 script:
-  - .Tetris-Procesos-master/gradlew clean
-  - .Tetris-Procesos-master/gradlew assembleDebug
-  - .Tetris-Procesos-master/gradlew assembleDebugAndroidTest
+  -   - cd Tetris-Procesos-master/
+  - ./gradlew clean
+  - ./gradlew assembleDebug
+  - ./gradlew assembleDebugAndroidTest
 #script:
  # - sonar-scanner
-  - cd Tetris-Procesos-master/
+
   - chmod +x ./gradlew
   #- ./gradlew sonarqube
 deploy:
