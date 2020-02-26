@@ -35,9 +35,9 @@ before_install:
   - yes | sdkmanager "platforms;android-29"
 script:
   -   - cd Tetris-Procesos-master/
-  - ./gradlew clean
-  - ./gradlew assembleDebug
-  - ./gradlew assembleDebugAndroidTest
+  ##- ./gradlew clean
+  #- ./gradlew assembleDebug
+  #- ./gradlew assembleDebugAndroidTest
 #script:
  # - sonar-scanner
 
