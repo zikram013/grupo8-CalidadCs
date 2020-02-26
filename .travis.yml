@@ -31,12 +31,12 @@ android:
 #- sh set_tags.sh
 
 before_install:
-  - chmod +x gradlew
+  - chmod +x Tetris-Procesos-master/gradlew
   - yes | sdkmanager "platforms;android-29"
 script:
-  - ./gradlew clean
-  - ./gradlew assembleDebug
-  - ./gradlew assembleDebugAndroidTest
+  - .Tetris-Procesos-master/gradlew clean
+  - .Tetris-Procesos-master/gradlew assembleDebug
+  - .Tetris-Procesos-master/gradlew assembleDebugAndroidTest
 #script:
  # - sonar-scanner
   #- cd Tetris-Procesos-master/app
