@@ -25,8 +25,7 @@ before_install:
   - chmod +x Tetris-Procesos-master/gradlew
   - yes | sdkmanager "platforms;android-29"
 script:
-  #-  sonar-scanner
-   - cd Tetris-Procesos-master/
+     - cd Tetris-Procesos-master/
   - chmod +x ./gradlew
  # - ./gradlew clean
   #- ./gradlew assembleDebug
@@ -45,5 +44,4 @@ deploy:
     branch: master
     repo: zikram013/grupo8-CalidadCs
     tags: true
-
     rvm: 2.0.0
