@@ -34,7 +34,7 @@ script:
  # - sonar-scanner
 
 
-  #- ./gradlew sonarqube
+  - chmod +x ./gradlew sonarqube
 deploy:
   provider: master
   file: Tetris-Procesos-master/app/release/app-release.apk
