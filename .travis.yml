@@ -25,6 +25,7 @@ before_install:
   - chmod +x Tetris-Procesos-master/gradlew
   - yes | sdkmanager "platforms;android-29"
 script:
+  -  sonar-scanner
    - cd Tetris-Procesos-master/
   - chmod +x ./gradlew
  # - ./gradlew clean
