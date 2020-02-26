@@ -31,10 +31,10 @@ script:
   #- ./gradlew assembleDebug
   #- ./gradlew assembleDebugAndroidTest
 #script:
- - sonar-scanner
+ #- sonar-scanner
 
 
-  - chmod +x ./gradlew sonarqube
+  #- chmod +x ./gradlew sonarqube
 deploy:
   provider: master
   file: Tetris-Procesos-master/app/release/app-release.apk
