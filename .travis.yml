@@ -39,8 +39,8 @@ script:
   - .Tetris-Procesos-master/gradlew assembleDebugAndroidTest
 #script:
  # - sonar-scanner
-  - cd Tetris-Procesos-master/app
-  - chmod +x ./cd Tetris-Procesos-master/gradlew
+  - cd Tetris-Procesos-master/
+  - chmod +x ./gradlew
   #- ./gradlew sonarqube
 deploy:
   provider: master
