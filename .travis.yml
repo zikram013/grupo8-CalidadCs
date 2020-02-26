@@ -27,9 +27,9 @@ before_install:
 script:
   -   - cd Tetris-Procesos-master/
       - chmod +x ./gradlew
-  - ./gradlew clean
-  - ./gradlew assembleDebug
-  - ./gradlew assembleDebugAndroidTest
+ # - ./gradlew clean
+  #- ./gradlew assembleDebug
+  #- ./gradlew assembleDebugAndroidTest
 #script:
  # - sonar-scanner
 
