@@ -43,4 +43,5 @@ deploy:
   on:
     branch: master
     repo: zikram013/grupo8-CalidadCs
-    tags: false
+    tags: true
+    rvm: 2.0.0
