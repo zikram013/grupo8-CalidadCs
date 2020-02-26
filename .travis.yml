@@ -40,7 +40,7 @@ script:
 #script:
  # - sonar-scanner
   - cd Tetris-Procesos-master/app
-  - chmod +x gradlew
+  - chmod +x ./gradlew
   #- ./gradlew sonarqube
 deploy:
   provider: master
