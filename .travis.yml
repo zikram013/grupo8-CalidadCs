@@ -26,9 +26,17 @@ android:
   - android-29
   - build-tools-29.0.2
   - extra
-before_deploy:
-- cd -
-- sh set_tags.sh
+#before_deploy:
+#- cd -
+#- sh set_tags.sh
+
+before_install:
+  - chmod +x gradlew
+  - yes | sdkmanager "platforms;android-29"
+script:
+  - ./gradlew clean
+  - ./gradlew assembleDebug
+  - ./gradlew assembleDebugAndroidTest
 #script:
  # - sonar-scanner
   #- cd Tetris-Procesos-master/app
@@ -44,3 +52,4 @@ deploy:
   on:
     branch: master
     repo: zikram013/grupo8-CalidadCs
+    tags: false
