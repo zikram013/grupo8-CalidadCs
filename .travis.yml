@@ -28,6 +28,8 @@ script:
   #- - sonar-scanner
   - - cd Tetris-Procesos-master/
   - chmod +x ./gradlew
+  - ./gradlew sonarqube
+  - ./gradlew clean
  # - ./gradlew clean
   #- ./gradlew assembleDebug
   #- ./gradlew assembleDebugAndroidTest
