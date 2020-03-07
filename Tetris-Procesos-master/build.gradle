@@ -56,7 +56,10 @@ allprojects {
 }
 
 
-
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+sourceSets.main.java.srcDirs = ['activities']
+mainClassName='MainActivity'
 
 
 ext.yourTag = "REL-${project.version.toString()}"
@@ -70,4 +73,3 @@ task pushTag(type: GitPush, dependsOn: createTag) {
     namesOrSpecs = [yourTag]
 }
 
-mainClassName='com.example.activities.MainActivity'
