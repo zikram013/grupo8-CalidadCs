@@ -1,4 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+import org.ajoberstar.gradle.git.tasks.GitTag
+import org.ajoberstar.gradle.git.tasks.GitPush
 
 buildscript {
     repositories {
@@ -13,18 +15,25 @@ buildscript {
         classpath 'com.google.gms:google-services:4.3.2'  // Google Services plugin
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+
     }
 }
 
 plugins {
     id "org.sonarqube" version "2.8"
+    id 'java-library'
+    id 'application'
 }
+
 
 /*sonarqube {
     properties {
         property "sonar.projectKey", "zikram013_grupo8-CalidadCs"
     }
 }*/
+
+
 
 sonarqube {
     properties {
@@ -46,13 +55,9 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
 
-import org.ajoberstar.gradle.git.tasks.GitTag
 
-import org.ajoberstar.gradle.git.tasks.GitPush
+
 
 ext.yourTag = "REL-${project.version.toString()}"
 task createTag(type: GitTag) {
@@ -65,3 +70,4 @@ task pushTag(type: GitPush, dependsOn: createTag) {
     namesOrSpecs = [yourTag]
 }
 
+mainClassName='com.example.activities.MainActivity'
