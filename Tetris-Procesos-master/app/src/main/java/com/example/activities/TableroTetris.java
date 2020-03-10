@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 public class TableroTetris extends AppCompatActivity {
-    private final Bloque[][] tablero;
+    private Bloque[][] tablero;
     private Pieza piezaSiguiente;
     private Pieza piezaActual;
     private Pieza piezaRapida;
@@ -193,7 +193,7 @@ public class TableroTetris extends AppCompatActivity {
         }
     }
 
-    private void borrarColores() {
+    public void borrarColores() {
         int color;
         int n, m = 0;
         for (int i = 0; i < filas; i++) {
@@ -215,7 +215,7 @@ public class TableroTetris extends AppCompatActivity {
         }
     }
 
-    private void comprobarAdyacentes(int color, int i, int j) {
+    public void comprobarAdyacentes(int color, int i, int j) {
         if (i < filas - 1) {
             if (tablero[i + 1][j].isActivo() && tablero[i + 1][j].getColor() == color && !eliminados.contains(tablero[i + 1][j])) {
                 eliminados.add(tablero[i + 1][j]);
@@ -400,5 +400,13 @@ public class TableroTetris extends AppCompatActivity {
 
     public Pieza getSombra() {
         return this.sombra;
+    }
+
+    public Bloque[][] getTablero() {
+        return tablero;
+    }
+
+    public void setTablero(Bloque[][] tablero) {
+        this.tablero = tablero;
     }
 }
