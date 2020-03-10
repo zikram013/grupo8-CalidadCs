@@ -208,7 +208,7 @@ public class TableroTetris extends AppCompatActivity {
                         for (Bloque bloque : eliminados) {
                             bloque.desactivar();
                         }
-                        mainActivity.sumar_puntuacion(20);
+                        //mainActivity.sumar_puntuacion(20);
                     }
                 }
             }
@@ -408,5 +408,9 @@ public class TableroTetris extends AppCompatActivity {
 
     public void setTablero(Bloque[][] tablero) {
         this.tablero = tablero;
+    }
+
+    public HashSet<Bloque> getEliminados() {
+        return eliminados;
     }
 }
