@@ -29,7 +29,7 @@ public class Controls {
     }
 
     public void dropButtonPressed(Pieza pieza) {
-        hebra.getTetris().hard_Drop(pieza);
+        hebra.getTetris().hardDrop(pieza);
         hebra.getVentana().invalidate();
 
     }

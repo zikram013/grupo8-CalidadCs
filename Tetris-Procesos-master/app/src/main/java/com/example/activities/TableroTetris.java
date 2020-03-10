@@ -30,10 +30,12 @@ public class TableroTetris extends AppCompatActivity {
     // TODO: 25/10/2019 : Pasarle el parámetro desde la pantalla de inicio
 
     private Pieza sombra;
-    
+
     private boolean modoFantasia;
     private boolean modoLegacy;
     private HashSet<Bloque> eliminados = new HashSet<>();
+    private Random rand = new Random();
+
     @SuppressLint("ResourceType")
     public TableroTetris(MainActivity mainActivity, Ventana v, boolean modoFantasia, boolean modoLegacy) {
 
@@ -162,7 +164,7 @@ public class TableroTetris extends AppCompatActivity {
             posarPiezaActual(piezaActual);
             ventana.borrarPieza(piezaActual);
             this.piezaActual = piezaSiguiente;
-            this.sombra=piezaActual.clonar();
+            this.sombra = piezaActual.clonar();
             ventana.setPieza(piezaActual);
             actualizarSombra();
             ventana.setSombra(sombra);
@@ -195,7 +197,6 @@ public class TableroTetris extends AppCompatActivity {
 
     public void borrarColores() {
         int color;
-        int n, m = 0;
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 Bloque b = tablero[i][j];
@@ -216,29 +217,21 @@ public class TableroTetris extends AppCompatActivity {
     }
 
     public void comprobarAdyacentes(int color, int i, int j) {
-        if (i < filas - 1) {
-            if (tablero[i + 1][j].isActivo() && tablero[i + 1][j].getColor() == color && !eliminados.contains(tablero[i + 1][j])) {
-                eliminados.add(tablero[i + 1][j]);
-                comprobarAdyacentes(color, i + 1, j);
-            }
+        if ((i < filas - 1) && (tablero[i + 1][j].isActivo() && tablero[i + 1][j].getColor() == color && !eliminados.contains(tablero[i + 1][j]))) {
+            eliminados.add(tablero[i + 1][j]);
+            comprobarAdyacentes(color, i + 1, j);
         }
-        if (j < columnas - 1) {
-            if (tablero[i][j + 1].isActivo() && tablero[i][j + 1].getColor() == color && !eliminados.contains(tablero[i][j + 1])) {
-                eliminados.add(tablero[i][j + 1]);
-                comprobarAdyacentes(color, i, j + 1);
-            }
+        if ((j < columnas - 1) && (tablero[i][j + 1].isActivo() && tablero[i][j + 1].getColor() == color && !eliminados.contains(tablero[i][j + 1]))) {
+            eliminados.add(tablero[i][j + 1]);
+            comprobarAdyacentes(color, i, j + 1);
         }
-        if (i > 0) {
-            if (tablero[i - 1][j].isActivo() && tablero[i - 1][j].getColor() == color && !eliminados.contains(tablero[i - 1][j])) {
+        if ((i > 0) && (tablero[i - 1][j].isActivo() && tablero[i - 1][j].getColor() == color && !eliminados.contains(tablero[i - 1][j]))){
                 eliminados.add(tablero[i - 1][j]);
                 comprobarAdyacentes(color, i - 1, j);
-            }
         }
-        if (j > 0) {
-            if (tablero[i][j - 1].isActivo() && tablero[i][j - 1].getColor() == color && !eliminados.contains(tablero[i][j - 1])) {
+        if ((j > 0) && (tablero[i][j - 1].isActivo() && tablero[i][j - 1].getColor() == color && !eliminados.contains(tablero[i][j - 1]))) {
                 eliminados.add(tablero[i][j - 1]);
                 comprobarAdyacentes(color, i, j - 1);
-            }
         }
     }
 
@@ -263,7 +256,7 @@ public class TableroTetris extends AppCompatActivity {
         return perdido;
     }
 
-    public void hard_Drop(Pieza pieza) {
+    public void hardDrop(Pieza pieza) {
         if (mainActivity.getH().getPuedoMover()) {
             int n = contadorPiezas;
             //Mientras que no se haya posado otra pieza
@@ -355,10 +348,9 @@ public class TableroTetris extends AppCompatActivity {
     }
 
     public void cambiarBloquesColorRandom() {
-        Random r = new Random();
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                int color = r.nextInt(7);
+                int color = rand.nextInt(7);
                 if (tablero[i][j].isActivo()) tablero[i][j].setColor(color);
             }
         }
@@ -380,19 +372,19 @@ public class TableroTetris extends AppCompatActivity {
 
     public void actualizarSombra() {
         int contador = 0;
-        while(noPosible(sombra) && contador<filas){
+        while (noPosible(sombra) && contador < filas) {
             sombra.subir();
             contador++;
         }
 
         contador = 0;
         boolean baja = true;
-        while(baja && contador<filas){
+        while (baja && contador < filas) {
             sombra.bajar();
             contador++;
             if (noPosible(sombra)) {
                 sombra.subir();
-                baja=false;
+                baja = false;
             }
         }
         ventana.setSombra(sombra);

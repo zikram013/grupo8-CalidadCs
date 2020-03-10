@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class TableroTetrisTest {
 
     TableroTetris tableroActivity;
-    
+
     @Before
     public void init(){
         MainActivity main = new MainActivity();
