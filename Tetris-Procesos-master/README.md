@@ -6,3 +6,4 @@ testing my hotfix branch
 >>>>>>> myhotfix
 
 testing develop branch
+testing release branch
