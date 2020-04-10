@@ -209,7 +209,7 @@ public class TableroTetris extends AppCompatActivity {
                         for (Bloque bloque : eliminados) {
                             bloque.desactivar();
                         }
-                        //mainActivity.sumar_puntuacion(20);
+                        mainActivity.sumar_puntuacion(20);
                     }
                 }
             }

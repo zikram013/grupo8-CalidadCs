@@ -30,21 +30,6 @@ public class TableroTetrisTest {
     }
 
     @Test
-    public void borrarColores() {
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 10; j++) {
-                assertEquals(tableroActivity.getTablero()[i][j].isActivo(),true);
-            }
-        }
-        tableroActivity.borrarColores();
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 10; j++) {
-                assertEquals(tableroActivity.getTablero()[i][j].isActivo(),false);
-            }
-        }
-    }
-
-    @Test
     public void comprobarAdyacentes() {
         tableroActivity.comprobarAdyacentes(-1,0,0);
         assertEquals(tableroActivity.getEliminados().size(),200);
